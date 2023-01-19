@@ -9,5 +9,5 @@ router.register('users', UserView)
 urlpatterns = [
     path('', include(router.urls)),
     path('login/', obtain_auth_token),
-    path('logout/', logout),
+    path('logout/', logout), #logout
 ]
