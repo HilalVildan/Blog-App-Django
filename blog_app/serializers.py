@@ -38,6 +38,7 @@ class BlogPostSerializer(FixSerializer):
     blog_category_id = serializers.IntegerField() # Üst kayıt ID
     blog_category = serializers.StringRelatedField() # Üst kayıt ismi
     blog_comments = BlogCommentSerializer(read_only=True, many=True) # Alt kayıtlar related_name ile çağrılabilir.
+    #modeldeki blogcomment modeline related name yazmak zorundayim. (sadece okuma amacli ve birden cok olabilir.)
     
     class Meta(FixSerializer.Meta):
         model = BlogPost

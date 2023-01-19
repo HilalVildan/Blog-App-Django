@@ -9,7 +9,7 @@ class FixModel(models.Model):
     updated = models.DateTimeField(verbose_name='Güncelleme Tarihi', auto_now=True)
 
     class Meta:
-        abstract = True # Bu model için tablo oluşturma.
+        abstract = True # Bu model için tablo oluşturma dmeek istiyorum bununla.
 
 # -------------------- Models --------------------------------------
 

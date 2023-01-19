@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -39,10 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'user_api',
 
+    #modules
+    'rest_framework',
+    'rest_framework.authtoken', #migrate
+
+    #apps
+    'user_api',
     'blog_app',
    
    
@@ -141,11 +144,11 @@ CORS_EXPOSE_HEADERS = (
 
 
 REST_FRAMEWORK = {
-    # -- Auth Type --
+    # -- Auth Type -- #giris yöntemi token.
     'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.TokenAuthentication'],
-    # -- Default Permission --
+    # -- Default Permission -- #kullanici degilse sadece okuyabilir
     'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticatedOrReadOnly'],
-    # -- Pagination --
+    # -- Pagination -- #sayfalama yöntemi
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }

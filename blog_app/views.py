@@ -21,8 +21,8 @@ class BlogPostView(FixView):
     serializer_class = BlogPostSerializer
     permission_classes = [IsOwnerOrAdminOrReadOnly] # Herkes görebilir veya sadece (Admin veya Sahibi)
 
-    # Override -> Her görüntüleme için viewed sayacını 1 arttır.
-    def retrieve(self, request, *args, **kwargs):
+    # Override -> Her görüntüleme için viewed sayacını 1 arttır. ( permission otantication ve görüntüleme islemleri hep viewsta yapiliyor. bu denle bunu da burda yaptik.)
+    def retrieve(self, request, *args, **kwargs): #retrive görüntüleme fonksiyonu.
         instance = self.get_object() # Obje verisi al.
         instance.viewed += 1 # viewed 1 arttır.
         instance.save() # objeyi kaydet.
